@@ -1,0 +1,21 @@
+@import '~antd/dist/antd.css';
+
+.site-layout-content {
+    min-height: 280px;
+    padding: 24px;
+    background: #d0bbbb;
+}
+.logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: #d7c8c8;
+}
+.ant-row-rtl .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+[data-theme="pink"] .site-layout-content {
+    background: #351c75;
+}
