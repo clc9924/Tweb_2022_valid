@@ -1,0 +1,6 @@
+@import '~antd/dist/antd.css';
+
+.site-card-wrapper {
+    padding-left:100px;
+    background: rgba(171, 125, 118, 0.012);
+}
