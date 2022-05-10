@@ -14,8 +14,7 @@ export interface Travel{
 const Card_box = ({Countries}:Travel) =>{
 
     return(
-    <div className='grid-3
-    '>
+    <div className='grid-3'>
         {Countries.map((card: any) => (
             <div className="site-card-border-less-wrapper ">
                 <Card title={card.country} bordered={false} style={{ textAlign: "left", width: 500 }}>

@@ -3,3 +3,47 @@
 .ant-input{
     width: 100%;
 }
+
+
+table {
+    margin-top: 10px;
+    color: #000;
+    width: 100%;
+    /* border-collapse: collapse; */
+    border: 1px solid grey;
+    border-spacing: 0;
+   
+  }
+  
+  thead {
+    border-bottom: 2px solid #e2e2e2;
+  }
+  
+  
+  tbody {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+  }
+  
+  th {
+    text-align: left;
+    padding: 0 15px;
+    vertical-align: middle;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .formTypeGrid{
+ 
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .login{
+    text-align: center;
+  }

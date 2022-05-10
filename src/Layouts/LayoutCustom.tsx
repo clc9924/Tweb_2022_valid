@@ -1,71 +1,58 @@
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu, Breadcrumb, Row ,List} from "antd";
 import { ContentLayout } from './ContentLayout';
 import './LayoutC.css';
 import { Forms } from '../Form/Forms';
+import { useRootStore } from '../index'
+import { useEffect } from "react";
+import { CardCustom } from "./Show_Data_Root_Form";
+import Country, { IContentModel } from "../interface/extentedInterface";
+import { observer } from 'mobx-react-lite'
+import Card_box from "./Card_box";
+import { countriesList, Informations } from "../data_json/data";
+import { FooterNow } from "./FooterFor";
+import { Form_LogIN } from "../Form/Login";
+import { Link, Route, Routes } from "react-router-dom";
+
+import { Form_1 } from "../menu_page/Form_1";
+
+import { Table_edit_3 } from "../menu_page/Table_Edit_3";
 
 const { Header, Content, Footer } = Layout;
-
-const Informations = [
-    {
-        id: 1,
-        title: "The city",
-        description: "Chisinau"
-    },
-    {
-        id: 2,
-        title: "District ",
-        description: "Telecentru"
-    },
-    {
-        id: 3,
-        title: "Address",
-        description: "str.Sihastrului"
-    },
-    {
-        id: 4,
-        title: "Phone number",
-        description: "069260798"
-    },
-    
-
-
-
-]
 
 
 export const LayoutCustom = () =>{
     return(
-        <>
+        
             <Layout className="layout">
+             
                 <Header>
-                    <div className="logo" />
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                        {new Array(4).fill(null).map((_, index) => {
-                            const key = index + 1;
-                            return <Menu.Item key={key}>{` ${key}`}</Menu.Item>;
-                        })}
+                    <Menu theme='dark' mode='horizontal'>
+                        <Menu.Item key={1}>
+                            <Link to="/login">Login</Link>
+                        </Menu.Item>
+                        <Menu.Item key={2}>
+                            <Link to="/myform">MyForm</Link>
+                        </Menu.Item>
+                        <Menu.Item key={3}>
+                            <Link to="/cards">Show Card</Link>
+                        </Menu.Item>
+                        <Menu.Item key={4}>
+                            <Link to="/table_edit">Show Table</Link>
+                        </Menu.Item>               
                     </Menu>
-                </Header>
-                <Content style={{ padding: '10 25px' }}>
-                    <Breadcrumb style={{ margin: '25px 10' }}>
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>Details</Breadcrumb.Item>
-                        <Breadcrumb.Item>Apps</Breadcrumb.Item>
-    
-                    </Breadcrumb>
+                </Header> 
 
-                    <div className="site-layout-content">
-                        {   Informations.map((el, index) =>{
-                            return(
-                                <ContentLayout key={el.id} title={el.title} description={el.description} />
-                            )
-                        })
-                        }
+                <Routes>
+                    <Route path='/login' element={<Form_LogIN/>} /> 
+                    <Route path='/myform' element={<Form_1/>} />
+                    <Route path='/cards' element={<Card_box Countries={countriesList}/>} />
+                    <Route path='/table_edit' element={<Table_edit_3/>} />   
+                </Routes>   
+{/*                 
+                 <Content style={{ padding: '0 25px' }}> 
 
-                    </div>
-                    <Forms></Forms>
-                </Content>
-            </Layout>,
-        </>
+                </Content>  */}
+            </Layout>
+       
     )
 }
